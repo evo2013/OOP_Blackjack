@@ -16,24 +16,12 @@ class Deck
     return @cards
   end
 
-  def display_deck #not needed
-    cards.each do |card|
-      puts
-      puts card
-      puts 
-    end
-  end
-
   def shuffle!
     cards.shuffle!
   end
 
   def deal_a_card
     cards.pop
-  end
-
-  def count  #not needed
-    cards.length
   end
 end
 
@@ -72,10 +60,10 @@ module Hand
 
   def win_or_bust?
     if self.total == 21
-      puts "\nCongratulations, #{self.name} has won!\n"
+      puts "\nCongratulations, #{self.name} wins!\n"
       abort
     elsif self.total > 21
-      puts "\nSorry, #{self.name} has gone bust!\n"
+      puts "\nSorry, #{self.name} has gone bust! Opponent wins!\n"
       abort
     end
   end
@@ -83,7 +71,7 @@ module Hand
   def win_by_comparison(winner)
     puts ".......Comparing the two scores......"
     sleep 3
-    puts "#{winner} has won this round!"
+    puts "#{winner} wins this round!"
     abort
   end
 
@@ -143,7 +131,6 @@ class Player
       elsif hit_or_stay == "s"
         puts "......Dealer's Turn to play......."
         sleep 2
-        "s"
         break
       else
         puts "Invalid option"         
